@@ -1,10 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 const navItems = [
   'About',
   'Resume',
   'Portfolio',
-];
+] as const;
+
+type NavItem = typeof navItems[number];
 
 const whatIDo = [
   {
@@ -192,10 +194,11 @@ const portfolioItems = [
 ];
 
 const MainContent = () => {
-  const [activePage, setActivePage] = useState('About');
-  const [openTestimonial, setOpenTestimonial] = useState(null);
+  const [activePage, setActivePage] = useState<NavItem>('About');
+  const [openTestimonial, setOpenTestimonial] = useState<number | null>(null);
+  const [portfolioCategory, setPortfolioCategory] = useState<string>('All');
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: NavItem) => {
     setActivePage(page);
   };
 
@@ -412,7 +415,7 @@ const MainContent = () => {
                 <span style={{ color: '#FFD369', fontSize: '1.3rem' }}>📚</span> Education
               </h2>
               <div className="education-grid">
-                {education.map((ed, i) => (
+                {education.map((ed) => (
                   <div key={ed.school} className="education-card">
                     <div className="card-content">
                       <div className="card-header">
@@ -432,7 +435,7 @@ const MainContent = () => {
                 <span style={{ color: '#FFD369', fontSize: '1.3rem' }}>💼</span> Experience
               </h2>
               <div className="experience-grid">
-                {experience.map((ex, i) => (
+                {experience.map((ex) => (
                   <div key={ex.title + ex.years} className="experience-card">
                     <div className="card-content">
                       <div className="card-header">
