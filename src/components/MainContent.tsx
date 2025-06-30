@@ -452,7 +452,7 @@ const MainContent = () => {
                 <div className="portfolio-grid">
                   {portfolioItems
                     .filter(item => portfolioCategory === 'All' || item.category === portfolioCategory)
-                    .map((item, index) => (
+                    .map((item) => (
                       <div key={item.title} className="portfolio-card-new">
                         <div className="portfolio-image-container-new">
                           <img 
