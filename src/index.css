@@ -6,7 +6,7 @@ html, body, #root {
 }
 
 *, *::before, *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 /* Remove all other global styles to avoid conflicts with App.css */
